@@ -26,6 +26,11 @@ button {
   cursor: pointer;
 }
 
+/* --------- COMMON style ----------- */
+.hidden {
+  display: none;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
@@ -53,18 +58,23 @@ button {
   align-items: center;
   gap: 8px;
 }
-.header-top button {
-  border: none;
-  background-color: transparent;
+.header-top .right-content a {
   color: var(--main-color);
-  font-size: 15px;
+  font-weight: bold;
+  font-size: 16px;
   transition: all 0.3s ease-in-out;
 }
-
-.header-top button:hover {
-  font-weight: bold;
+.header-top .left-content .toggle-sidebar-btn {
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  border: none;
 }
-
+.header-top .left-content .toggle-sidebar-btn:hover {
+  opacity: 0.8;
+}
 .header-nav {
   position: sticky;
   top: 0;
@@ -101,28 +111,28 @@ button {
 }
 
 /* --------- Category section style ----------- */
-.product-section {
+.user-section {
   margin-top: 40px;
   display: flex;
   gap: 20px;
 }
 
-.product-section aside {
+.user-section aside {
   width: 15%;
 }
 
-.product-section aside .category-list {
+.user-section aside .category-list {
   list-style: none;
   padding: 0;
 }
 
-.product-section .category-sidebar h2 {
+.user-section .category-sidebar h2 {
   font-size: 20px;
   color: var(--main-color);
   font-weight: bold;
   margin-bottom: 20px;
 }
-.product-section .category-sidebar li {
+.user-section .category-sidebar li {
   padding: 8px 0;
   border-bottom: 1px solid #ececec;
   font-size: 16px;
@@ -131,25 +141,25 @@ button {
   color: var(--main-color);
 }
 
-.product-content {
+.user-content {
   flex: 1;
   border-left: 1px solid #ececec;
   border-right: 1px solid #ececec;
   padding: 0 20px;
 }
-.product-content h2 {
+.user-content h2 {
   font-size: 24px;
   color: var(--main-color);
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.product-content .product-list {
+.user-content .user-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
-.product-content .product-list .product-item {
+.user-content .user-list .user-item {
   border-radius: 16px;
   width: calc(25% - 20px);
   border: 1px solid #ececec;
@@ -157,31 +167,19 @@ button {
   overflow: hidden;
 }
 
-.product-content .product-list .product-item img {
+.user-content .user-list .user-item img {
   width: 100%;
   object-fit: cover;
   height: auto;
 }
 
-.product-item__desc {
+.user-item__desc {
   padding: 10px;
   font-size: 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   color: var(--main-color);
-}
-
-.product-item__add-to-cart {
-  background: var(--main-color);
-  border-radius: 8px;
-  padding: 8px;
-  color: #fff;
-}
-
-.product-item__add-to-cart:hover {
-  background: #003d1a;
-  transition: all 0.3s ease-in-out;
 }
 
 .filter-sidebar h3 {
@@ -212,4 +210,19 @@ footer {
   justify-content: center;
   align-items: center;
   color: #fff;
+}
+
+/* --------- Sidebar style ----------- */
+.main-sidebar {
+  /* display: none; */
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  background-color: var(--main-color);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 20px;
 }
