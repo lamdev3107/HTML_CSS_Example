@@ -8,18 +8,17 @@
     <title>HTML_CSS_Example</title>
   </head>
   <body>
-    <div class="container">
-      <div class="header">
-        <button class="toggle-sidebar-btn">Toggle Sidebar</button>
+    <div class="wrapper">
+      <header class="header">
+        <button class="header__toggle-sidebar">Toggle Sidebar</button>
         <h2 class="header__title">Header</h2>
-      </div>
+      </header>
       <nav class="header-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Contact</a></li>
+        <a href="#" class="header-nav__link">Home</a>
+        <a href="#" class="header-nav__link">About</a>
+        <a href="#" class="header-nav__link">News</a>
+        <a href="#" class="header-nav__link">Contact</a>
       </nav>
-
       <main class="main-content">
         <!-- Left sidebar  -->
         <section class="main-section">
@@ -56,14 +55,14 @@
           </aside>
         </section>
       </main>
+      <footer id="footer">FOOTER</footer>
+      <aside class="main-sidebar">
+        <div class="main-sidebar__content">
+          <h2>HAMBURGER MENU</h2>
+          <button class="close-sidebar-btn">X</button>
+        </div>
+      </aside>
     </div>
-    <footer id="footer">FOOTER</footer>
-    <aside class="main-sidebar">
-      <div class="main-sidebar__content">
-        <h2>HAMBURGER MENU</h2>
-        <button class="close-sidebar-btn">X</button>
-      </div>
-    </aside>
     <script src="main.js"></script>
   </body>
 </html>

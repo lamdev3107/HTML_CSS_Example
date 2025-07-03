@@ -54,17 +54,15 @@ function renderPagination(currentPage, totalPages) {
 function handleSidebarToggle() {
   if (mainSidebar.classList.contains("active")) {
     mainSidebar.classList.remove("active");
-    mainSidebar.classList.add("collapsed");
   } else {
     mainSidebar.classList.add("active");
-    mainSidebar.classList.remove("collapsed");
   }
 }
 
 // Toggle sidebar cho desktop
 const mainSidebar = document.querySelector(".main-sidebar");
 const mainSidebarContent = document.querySelector(".main-sidebar__content");
-const toggleSidebarBtn = document.querySelector(".toggle-sidebar-btn");
+const toggleSidebarBtn = document.querySelector(".header__toggle-sidebar");
 const closeSidebarBtn = document.querySelector(".close-sidebar-btn");
 toggleSidebarBtn.addEventListener("click", handleSidebarToggle);
 closeSidebarBtn.addEventListener("click", handleSidebarToggle);
@@ -75,13 +73,10 @@ document.addEventListener("click", function (e) {
     console.log("check sidebar", mainSidebar.classList);
     if (!mainSidebar.contains(e.target) && e.target !== toggleSidebarBtn) {
       mainSidebar.classList.remove("active");
-      mainSidebar.classList.add("collapsed");
-      mainSidebarContent.classList.add("hidden");
     }
   }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
   fetchData(1);
-  mainSidebar.classList.add("collapsed");
 });
