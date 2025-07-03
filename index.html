@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="main.css" />
     <title>HTML_CSS_Example</title>
   </head>
   <body>
@@ -21,7 +22,7 @@
 
       <main class="main-content">
         <!-- Left sidebar  -->
-          <section class="main-section">
+        <section class="main-section">
           <aside class="sidebar left-sidebar">
             <h3>NAVIGATION</h3>
             <ul>
@@ -35,38 +36,35 @@
           <div class="user-content">
             <h3 class="user-content__title">User List</h3>
 
-            <div class="user-content__list" >
+            <div class="user-content__list">
               <div class="user-item">
-                <img src="https://reqres.in/img/faces/1-image.jpg" alt="avatar">
+                <img
+                  src="https://reqres.in/img/faces/1-image.jpg"
+                  alt="avatar"
+                />
                 <div class="user-item__desc">
                   <h3 class="user-item__name">User 1</h3>
                   <p class="user-item__email">lamt@gmail.com</p>
                 </div>
-               
               </div>
             </div>
           </div>
 
           <!-- Right sidebar  -->
-          <aside class="sidebar right-sidebar" >
-            <h3 >RIGHT SIDEBAR</h3>
+          <aside class="sidebar right-sidebar">
+            <h3>RIGHT SIDEBAR</h3>
           </aside>
         </section>
       </main>
     </div>
-    <aside class="main-sidebar" >
+    <aside class="main-sidebar">
       <div class="main-sidebar__content">
         <h2>HAMBURGER MENU</h2>
-        <button class="close-sidebar-btn">
-          X
-        </button>
+        <button class="close-sidebar-btn">X</button>
       </div>
     </aside>
-    <footer class="footer">
-      FOOTER</p>
-    </footer>
+    <footer class="footer">FOOTER</footer>
     <script src="main.js"></script>
   </body>
-
 </html>
 <!-- Bài tập javascript 3:  Tại màn hình cho desktop, khi click vào block ở góc trên cùng bên trái thì thanh sidebar màu xanh lá sẽ ẩn/hiện, content chính sẽ rộng fullscreen. Tại màn hình tablet và mobile, khi ấn vào block xanh lá góc trên cùng bên phải, sidebar xanh lá sẽ hiện ra full màn hình, đè lên trên content, ấn lần nữa sẽ ẩn sidebar. Trong content, các ô nhỏ sẽ hiển thị thông tin các nhân vật trong ReqRes API lấy từ api https://reqres.in/api/users?page=1 phân trang, mỗi trang sẽ có 6 user (2 ngày) -->

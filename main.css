@@ -1,5 +1,9 @@
 :root {
   --main-color: #004d1f;
+  --sm: 768px;
+  --md: 992px;
+  --lg: 1200px;
+  --xl: 1440px;
 }
 
 /* --------- Global style ----------- */
@@ -32,7 +36,8 @@ button {
 }
 
 .container {
-  width: 80%;
+  max-width: 1920px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 
@@ -118,6 +123,7 @@ button {
 .main-section .sidebar h3 {
   font-size: 20px;
   flex-shrink: 0;
+  max-width: 300px;
   color: var(--main-color);
   font-weight: bold;
   margin-bottom: 20px;
@@ -157,6 +163,7 @@ button {
   grid-gap: 16px;
 }
 .user-content__list .user-item {
+  width: fit-content;
   border-radius: 16px;
   border: 1px solid #ececec;
   text-align: center;
@@ -223,17 +230,30 @@ footer {
   cursor: pointer;
 }
 
-/* @media (min-width: 992px) {
-  .main-sidebar.hidden ~ .container .main-content {
-    width: 100vw;
-    margin-left: 0;
+@media screen and (max-width: var(--lg)) {
+  .header-top {
+    width: 100%;
+    flex-direction: row-reverse;
   }
   .main-sidebar {
-    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 2000;
   }
-} */
+  .main-sidebar.active {
+    width: 100vw;
+  }
+  .main-sidebar.collapsed {
+    width: 0;
+  }
+  .user-content__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
-/* Tablet và mobile: sidebar phủ full màn hình */
 @media screen and (max-width: 991px) {
   .header-top {
     width: 100%;
