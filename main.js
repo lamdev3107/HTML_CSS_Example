@@ -1,3 +1,12 @@
+const hamburgerSidebar = document.querySelector(".hamburger-sidebar");
+const hamburgerSidebarContent = document.querySelector(
+  ".hamburger-sidebar__content"
+);
+const toggleSidebarBtn = document.querySelector(".header__toggle-sidebar");
+const closeSidebarBtn = document.querySelector(".close-sidebar-btn");
+toggleSidebarBtn.addEventListener("click", handleSidebarToggle);
+closeSidebarBtn.addEventListener("click", handleSidebarToggle);
+
 async function fetchData(page = 1) {
   try {
     let response = await fetch(`https://reqres.in/api/users?page=${page}`, {
@@ -6,7 +15,6 @@ async function fetchData(page = 1) {
       },
     });
     response = await response.json();
-    console.log("check response", response);
     renderUserList(response.data);
     renderPagination(response.page, response.total_pages);
   } catch (err) {
@@ -16,7 +24,7 @@ async function fetchData(page = 1) {
 
 function renderUserList(users) {
   const userListContainer = document.querySelector(".user-content__list");
-  userListContainer.innerHTML = ""; // Clear previous content
+  userListContainer.innerHTML = "";
   users.forEach((user) => {
     const userItem = document.createElement("div");
     userItem.className = "user-item";
@@ -32,51 +40,40 @@ function renderUserList(users) {
 }
 
 function renderPagination(currentPage, totalPages) {
-  let pagination = document.querySelector(".pagination");
+  let pagination = document.querySelector(".user-content__pagination");
+  console.log("Pagination element:", pagination);
   if (!pagination) {
     pagination = document.createElement("div");
-    pagination.className = "pagination";
-    pagination.style = "margin: 20px 0; text-align: center;";
+    pagination.className = "user-content__pagination";
     document.querySelector(".user-content").appendChild(pagination);
   }
   pagination.innerHTML = "";
   for (let i = 1; i <= totalPages; i++) {
     const btn = document.createElement("button");
+    btn.className = "pagination-btn";
     btn.textContent = i;
-    btn.style = `margin:0 5px; padding:5px 10px; border-radius:5px; border:1px solid #004d1f; background:${
-      i === currentPage ? "#004d1f" : "#fff"
-    }; color:${i === currentPage ? "#fff" : "#004d1f"};`;
+    if (i === currentPage) {
+      btn.classList.add("is-active");
+    } else {
+      btn.classList.remove("is-active");
+    }
     btn.onclick = () => fetchData(i);
     pagination.appendChild(btn);
   }
 }
 
 function handleSidebarToggle() {
-  if (mainSidebar.classList.contains("active")) {
-    mainSidebar.classList.remove("active");
-  } else {
-    mainSidebar.classList.add("active");
-  }
+  hamburgerSidebar.classList.toggle("is-active");
 }
 
-// Toggle sidebar cho desktop
-const mainSidebar = document.querySelector(".main-sidebar");
-const mainSidebarContent = document.querySelector(".main-sidebar__content");
-const toggleSidebarBtn = document.querySelector(".header__toggle-sidebar");
-const closeSidebarBtn = document.querySelector(".close-sidebar-btn");
-toggleSidebarBtn.addEventListener("click", handleSidebarToggle);
-closeSidebarBtn.addEventListener("click", handleSidebarToggle);
-// Toggle sidebar cho mobile/tablet
-
 document.addEventListener("click", function (e) {
-  if (mainSidebar.classList.contains("active")) {
-    console.log("check sidebar", mainSidebar.classList);
-    if (!mainSidebar.contains(e.target) && e.target !== toggleSidebarBtn) {
-      mainSidebar.classList.remove("active");
+  if (hamburgerSidebar.classList.contains("is-active")) {
+    if (!hamburgerSidebar.contains(e.target) && e.target !== toggleSidebarBtn) {
+      hamburgerSidebar.classList.remove("is-active");
     }
   }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  fetchData(1);
+  fetchData();
 });
