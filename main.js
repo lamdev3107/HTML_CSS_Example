@@ -24,7 +24,7 @@ function renderUserList(users) {
         <img src="${user.avatar}" alt="${user.first_name} ${user.last_name}" >
         <div class="user-item__desc">
           <h3 class="user-item__name">${user.first_name} ${user.last_name}</h3>
-          <p class="user-item__email">Email: ${user.email}</p>
+          <p class="user-item__email"> ${user.email}</p>
         </div>
         `;
     userListContainer.appendChild(userItem);
